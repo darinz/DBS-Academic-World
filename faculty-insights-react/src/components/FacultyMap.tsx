@@ -101,7 +101,7 @@ const FacultyMap: React.FC = () => {
                   {/* This is a simplified map representation */}
                   <div className="text-center">
                     <div style={{ fontSize: '24px', marginBottom: '20px' }}>
-                      🗺️ Interactive Map View
+                      Interactive Map View
                     </div>
                     <p>This would display an interactive map showing faculty distribution across U.S. universities.</p>
                     <p>In a full implementation, this would use a mapping library like Leaflet or Google Maps.</p>
