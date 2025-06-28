@@ -1,12 +1,21 @@
 {
   "name": "dbs-academic-world",
   "version": "1.0.0",
-  "description": "",
+  "description": "Faculty Insights and Connections Analytics - A comprehensive web application for discovering and connecting with academic faculty across U.S. universities",
   "main": "index.js",
   "scripts": {
+    "setup": "chmod +x setup.sh && ./setup.sh",
+    "install-all": "npm install && cd faculty-insights-backend && npm install && cd ../faculty-insights-react && npm install",
+    "build": "cd faculty-insights-backend && npm run build && cd ../faculty-insights-react && npm run build",
+    "start-backend": "cd faculty-insights-backend && npm run dev",
+    "start-frontend": "cd faculty-insights-react && npm start",
+    "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["faculty", "analytics", "academic", "research", "university", "database"],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
