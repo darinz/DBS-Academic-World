@@ -5,11 +5,11 @@ echo "=================================================================="
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js is not installed. Please install Node.js v16 or higher."
+    echo "Node.js is not installed. Please install Node.js v16 or higher."
     exit 1
 fi
 
-echo "✅ Node.js version: $(node --version)"
+echo "Node.js version: $(node --version)"
 
 # Setup Backend
 echo ""
@@ -17,7 +17,7 @@ echo "Setting up Backend..."
 cd faculty-insights-backend
 
 if [ ! -f "package.json" ]; then
-    echo "❌ Backend package.json not found. Please ensure the backend directory is properly created."
+    echo "Backend package.json not found. Please ensure the backend directory is properly created."
     exit 1
 fi
 
@@ -25,7 +25,7 @@ echo "Running backend install script..."
 chmod +x install.sh
 ./install.sh
 
-echo "✅ Backend setup complete!"
+echo "Backend setup complete!"
 
 # Setup Frontend
 echo ""
@@ -33,14 +33,14 @@ echo "Setting up Frontend..."
 cd ../faculty-insights-react
 
 if [ ! -f "package.json" ]; then
-    echo "❌ Frontend package.json not found. Please ensure the frontend directory is properly created."
+    echo "Frontend package.json not found. Please ensure the frontend directory is properly created."
     exit 1
 fi
 
 echo "Installing frontend dependencies..."
 npm install
 
-echo "✅ Frontend setup complete!"
+echo "Frontend setup complete!"
 
 # Install root dependencies
 echo ""
