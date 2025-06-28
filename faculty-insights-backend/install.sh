@@ -3,25 +3,21 @@
 echo "Installing backend dependencies..."
 npm install
 
-echo "Creating .env file..."
-cat > .env << EOF
-# Database Configuration
-MONGODB_URI=mongodb://localhost:27017
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=your_password
-MYSQL_DATABASE=academicworld
+echo "Creating .env file from template..."
+if [ ! -f ".env" ]; then
+    cp env.example .env
+    echo "✅ .env file created from template"
+    echo "⚠️  Please update the .env file with your actual database credentials"
+else
+    echo "✅ .env file already exists"
+fi
 
-# Server Configuration
-PORT=3001
-NODE_ENV=development
-
-# CORS Configuration
-CORS_ORIGIN=http://localhost:3000
-EOF
+echo "Building TypeScript..."
+npm run build
 
 echo "Backend setup complete!"
-echo "Please update the .env file with your actual database credentials." 
+echo ""
+echo "Next steps:"
+echo "1. Update the .env file with your actual database credentials"
+echo "2. Ensure MongoDB, Neo4j, and MySQL are running"
+echo "3. Start the backend server: npm run dev" 
