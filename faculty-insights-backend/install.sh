@@ -6,10 +6,10 @@ npm install
 echo "Creating .env file from template..."
 if [ ! -f ".env" ]; then
     cp env.example .env
-    echo "✅ .env file created from template"
-    echo "⚠️  Please update the .env file with your actual database credentials"
+    echo ".env file created from template"
+    echo "Please update the .env file with your actual database credentials"
 else
-    echo "✅ .env file already exists"
+    echo ".env file already exists"
 fi
 
 echo "Building TypeScript..."
