@@ -21,28 +21,9 @@ if [ ! -f "package.json" ]; then
     exit 1
 fi
 
-echo "Installing backend dependencies..."
-npm install
-
-echo "Creating .env file..."
-cat > .env << EOF
-# Database Configuration
-MONGODB_URI=mongodb://localhost:27017
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=your_password
-MYSQL_DATABASE=academicworld
-
-# Server Configuration
-PORT=3001
-NODE_ENV=development
-
-# CORS Configuration
-CORS_ORIGIN=http://localhost:3000
-EOF
+echo "Running backend install script..."
+chmod +x install.sh
+./install.sh
 
 echo "✅ Backend setup complete!"
 
@@ -61,10 +42,16 @@ npm install
 
 echo "✅ Frontend setup complete!"
 
+# Install root dependencies
+echo ""
+echo "Installing root dependencies..."
+cd ..
+npm install
+
 # Create data directory for backend
 echo ""
 echo "Creating data directories..."
-cd ../faculty-insights-backend
+cd faculty-insights-backend
 mkdir -p data
 
 echo "Data directories created!"
@@ -77,10 +64,12 @@ echo ""
 echo "Next Steps:"
 echo "1. Update the .env file in faculty-insights-backend/ with your actual database credentials"
 echo "2. Ensure MongoDB, Neo4j, and MySQL are running"
-echo "3. Start the backend server:"
-echo "   cd faculty-insights-backend && npm run dev"
-echo "4. Start the frontend application:"
-echo "   cd faculty-insights-react && npm start"
+echo "3. Start the application:"
+echo "   npm run dev"
+echo ""
+echo "Or start services individually:"
+echo "   Backend: npm run start-backend"
+echo "   Frontend: npm run start-frontend"
 echo ""
 echo "Access the application at:"
 echo "   Frontend: http://localhost:3000"
