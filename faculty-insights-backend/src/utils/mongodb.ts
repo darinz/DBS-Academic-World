@@ -3,8 +3,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const DB_NAME = 'academicworld';
-const COLLEGE_FACULTY_CSV = path.join(__dirname, '../../data/college_faculty.csv');
-const FACULTY_KEYWORDS_CSV = path.join(__dirname, '../../data/faculty_keywords.csv');
+const COLLEGE_FACULTY_CSV = path.join(__dirname, '../../../data/college_faculty.csv');
+const FACULTY_KEYWORDS_CSV = path.join(__dirname, '../../../data/faculty_keywords.csv');
 
 let client: MongoClient;
 let db: Db;
